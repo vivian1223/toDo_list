@@ -66,4 +66,22 @@ background-color: darken($primary, 20%);
   }
 
 }
+.homeModalBgDark{
+  background-color: rgba(#000, 0.5);
+  height: 100%;
+  position: absolute; 
+  left: 0px;
+  top: 0px; 
+  width: 100%; 
+  z-index: 2;
+}
 
+.homeModal{
+  width: 300px;
+  background-color: $white;
+  z-index: 3;
+  position: absolute; 
+  left: 50%;
+  top: 50%; 
+  transform: translate(-50%);
+}
