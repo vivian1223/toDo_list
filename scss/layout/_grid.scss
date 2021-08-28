@@ -1,0 +1,29 @@
+
+@each $name in $grid-name {
+    .col-#{$name}{
+        width: $grid-spacer * $name;
+    }  
+}
+@include mobile{
+   @each $name in $grid-name {
+    .col-sm-#{$name}{
+        width: $grid-spacer * $name;
+    }  
+} 
+}
+
+
+.container{
+    max-width: 1110px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+.container-fluid{
+width: 100%;
+}
+
+.row{
+    display: flex;
+}

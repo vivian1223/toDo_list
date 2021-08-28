@@ -1,0 +1,69 @@
+.home-bg-theme{
+  min-height: 100vh;
+  background: #e5e5e5;
+}
+
+.home-tab{
+  background: $white;
+  border-bottom: 1px solid $info;
+  display: flex;
+}
+
+.home-tab-item{
+  display: block;
+  padding:8px 16px ;
+  border: 1px $primary solid;
+  border-bottom: none;
+  margin-left: -1px;
+  color: $primary;
+  &:hover{
+    background-color: $primary;
+    color: $white;
+      }
+}
+
+.home-tab-item:focus{
+color:$white;
+background-color: $primary;
+}
+.home-todo-item-edit{
+  visibility: hidden;
+}
+.home-todo-item{
+  margin:10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &::before{
+  content: "";
+  /*產生一個空的元素，偽元素使用不能少的步驟*/
+  position: absolute;
+  /* 偽元素需設定成「絕對位置」 */
+  width: 10px; /*圓點寬*/
+  height: 10px;/*圓點高*/
+  background-color: $primary; /*圓點 color*/
+  border-radius: 50%; /*圓*/
+  left: -32px; /*圓點本來覆蓋在 li 上*/ 
+}
+&:hover{
+  .home-todo-item-edit{
+    visibility: visible;
+  }
+}
+}
+
+.home-add-todo{
+  border-radius: 16px;
+  background-color: $primary;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform:  translate(-50%,50%);
+  padding: 8px 16px;
+  color: $white;
+  &:hover{
+background-color: darken($primary, 20%);
+  }
+
+}
+

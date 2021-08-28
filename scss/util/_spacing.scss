@@ -1,0 +1,105 @@
+//margin
+@each $name in $margin-name {
+    .m-#{$name}{
+        margin: $spacer * map-get($margin-base, $name);
+    }
+};
+
+@each $direction in $margin-direction {
+    @each $name in $margin-name {
+        .m#{$direction}-#{$name}{
+            margin-#{map-get($margin-direction-base, $direction)}: $spacer *  map-get($margin-base, $name);
+        }
+    }
+};
+
+@include tablet{
+    @each $direction in $margin-direction {
+        @each $name in $margin-name {
+            .m#{$direction}-md-#{$name}{
+                margin-#{map-get($margin-direction-base, $direction)}: $spacer *  map-get($margin-base, $name);
+            }
+        }
+    };
+}
+
+@include mobile{
+    @each $direction in $margin-direction {
+        @each $name in $margin-name {
+            .m#{$direction}-sm-#{$name}{
+                margin-#{map-get($margin-direction-base, $direction)}: $spacer *  map-get($margin-base, $name);
+            }
+        }
+    };
+}
+
+
+    @each $name in $margin-name {
+        .mx-#{$name}{
+            margin-left: $spacer *  map-get($margin-base, $name);
+            margin-right: $spacer *  map-get($margin-base, $name);
+        }
+    };
+    @each $name in $margin-name {
+        .my-#{$name}{
+            margin-top: $spacer *  map-get($margin-base, $name);
+            margin-bottom: $spacer *  map-get($margin-base, $name);
+        }
+    };
+
+.-ms-1{
+    margin-left: -1px;
+}    
+
+.mx-auto{
+    margin: 0 auto;
+}
+
+@include mobile{
+    .mx-sm-0{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+//padding
+
+@each $name in $padding-name {
+    .p-#{$name}{
+        padding: $spacer * map-get($padding-base, $name);
+    }
+};
+
+@each $direction in $padding-direction {
+    @each $name in $padding-name {
+        .p#{$direction}-#{$name}{
+            padding-#{map-get($padding-direction-base, $direction)}: $spacer *  map-get($padding-base, $name);
+        }
+    }
+}
+@each $name in $padding-name {
+    .px-#{$name}{
+        padding-left: $spacer *  map-get($padding-base, $name);
+        padding-right: $spacer *  map-get($padding-base, $name);
+    }
+};
+
+@each $name in $padding-name {
+    .py-#{$name}{
+        padding-top: $spacer *  map-get($padding-base, $name);
+        padding-bottom: $spacer *  map-get($padding-base, $name);
+    }
+};
+//width
+@each $name in $width-name {
+    .w-#{$name}{
+        width: $width-spacer * $name;
+    }
+}
+
+//height 
+
+@each $name in $height-name {
+    .h-#{$name}{
+        height: $height-spacer *$name;
+    }
+}

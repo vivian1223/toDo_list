@@ -1,0 +1,143 @@
+//base variables
+$spacer: 4px;
+$translate-list:"x","y";
+
+//text
+$font-name:"1","2","3","4","5","6","7";
+$font-base:(
+    "1":3.5,
+    "2":4,
+    "3":5,
+    "4":6,
+    "5":7,
+    "6":9,
+    "7":12
+);
+
+// line-height
+
+$line-height-name: "1","2";
+$line-height-base:(
+    "1":1,
+    "2":1.5
+);
+
+$margin-direction:"t","e","b","s";
+
+//spacing-margin
+
+$margin-name:"none","1","2","3","4","5","6","7","8";
+
+$margin-direction-base:(
+    "t":"top",
+    "e":"right",
+    "b":"bottom",
+    "s":"left"
+);
+$margin-base:(
+    "none":0,
+    "1":1,
+    "2":2,
+    "3":4,
+    "4":5,
+    "5":6,
+    "6":7.5,
+    "7":8,
+    "8":10
+);
+
+//spacing-padding 
+
+$padding-name:"1","2","3","4","5","6","7","8";
+$padding-direction:"t","e","b","s";
+$padding-direction-base:(
+    "t":"top",
+    "e":"right",
+    "b":"bottom",
+    "s":"left"
+);
+$padding-base:(
+    "1":4,
+    "2":5,
+    "3":6,
+    "4":8,
+    "5":10,
+    "6":12,
+    "7":14,
+    "8":16
+);
+
+//spacing-width
+$width-spacer:10px;
+$width-name:1,2,3,4,5,14;
+
+//spacing-height
+$height-spacer:10px;
+$height-name:1,2,3,4,5,14;
+
+//color
+
+$primary:#C0A4A5;
+$secondary:#907A7B;
+$danger:#DC3545;
+$info:#e5e5e5;
+$light:#F5F0E7;
+$dark:#707070;
+$white:#fff;
+
+//font,border color
+$color-list: "primary","secondary","danger","info", "light", "dark","white";
+$color-map:(
+    "primary":$primary,
+    "secondary":$secondary,
+    "danger":$danger,
+    "info":$info,
+    "light":$light,
+    "dark":$dark,
+    "white":$white
+);
+//border direction
+$direction-list:"top","right","bottom","left";
+$direciton-map:(
+    "top":top,
+    "right":right,
+    "bottom":bottom,
+    "left":left
+);
+
+//gird 
+
+$grid-spacer:90px;
+$grid-name:1,2,3,4,5,6,7,8,9,10,11,12;
+
+//flex
+
+$flex-list:"center","start","end","around","between","evenly";
+$flex-map:(
+    "center":center,
+    "start":flex-start,
+    "end":flex-end,
+    "around":space-around,
+    "between":space-between,
+    "evenly":space-evenly
+);
+
+//z-index
+$index-name:1,2,3,4,5,6,7,8,9,10,11,12;
+
+//font famliy
+$font-family-list:'Lato','Merriweather';
+//font-weight
+$font-weight-list:'light','regular','medium';
+$font-weight-map:(
+    'light':300,
+    'regular':400,
+    'medium':500
+);
+
+
+$break-points-list: 'sm','md';
+$break-points-map:(
+    "sm":767px,
+    "md":992px
+)

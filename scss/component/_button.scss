@@ -1,0 +1,60 @@
+//file button
+
+.btn{
+    font-weight: 700;
+    padding: $spacer*2 $spacer *4 ;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+}
+
+
+@each $color in $color-list {
+    .btn-#{$color}-outlined{
+        color: map-get($color-map,$color);
+        border: 1px map-get($color-map,$color) solid;
+        &:hover{
+            background-color:map-get($color-map,$color);
+            color: $white;
+        }
+    }
+}
+
+.btn-round{
+    border-radius: 16px;
+}
+
+@each $color in $color-list {
+    .btn-#{$color}-lg{
+        color: map-get($color-map,$color);
+        border: 1px map-get($color-map,$color) solid;
+        padding: $spacer*2  $spacer *12 ;
+        &:hover{
+            background-color:map-get($color-map,$color);
+            color: $white;
+        }
+    }
+}
+
+//例外
+.btn-light{
+    color: $dark;
+    border: 1px solid $light;
+    background: $light;
+    &:hover{
+        background: $dark;
+        border: 1px solid $dark;
+        color: $light;
+    }
+}
+
+.btn-secondary{
+    color: $light;
+    border: 1px solid $secondary;
+    background: $secondary;
+    &:hover{
+        background: $dark;
+        border: 1px solid $dark;
+        color: $light;
+    }
+}

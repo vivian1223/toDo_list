@@ -1,0 +1,51 @@
+@keyframes slideInDown {
+    from {
+      transform: translateY(-200%);
+      visibility: visible;
+    }
+  
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .slideDown {
+    animation-duration: 1s;
+    animation-name: slideInDown;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(-200%);
+      visibility: visible;
+    }
+  
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .slideInRight {
+    animation-duration: 2s;
+    animation-name: slideInRight;
+    animation-iteration-count: 1;
+  }
+
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(200%);
+      visibility: visible;
+    }
+  
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .slideInLeft {
+    animation-duration: 2s;
+    animation-name: slideInLeft;
+    animation-iteration-count: 1;
+  }

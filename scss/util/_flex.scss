@@ -1,0 +1,78 @@
+//flex-direction
+
+.flex-column{
+    flex-direction: column;
+}
+@include tablet{
+    .flex-md-column{
+        flex-direction: column;
+    }
+}
+
+@include mobile{
+    .flex-sm-row{
+        flex-direction: row;
+    }
+    .flex-sm-column{
+        flex-direction: column;
+    }
+}
+
+
+//justify-content
+@each $way in $flex-list {
+    .justify-content-#{$way}{
+        justify-content: map-get($flex-map, $way);
+    }
+};
+@include mobile{
+    @each $way in $flex-list {
+        .justify-content-sm-#{$way}{
+            justify-content: map-get($flex-map, $way);
+        }
+    }
+}
+//align-items
+@each $way in $flex-list {
+    .align-items-#{$way}{
+        align-items: map-get($flex-map, $way);
+    }
+};
+
+@include tablet{
+    @each $way in $flex-list {
+        .align-items-md-#{$way}{
+            align-items: map-get($flex-map, $way);
+        }
+    };
+}
+
+@include mobile{
+    @each $way in $flex-list {
+        .align-items-sm-#{$way}{
+            align-items: map-get($flex-map, $way);
+        }
+    };
+}
+//align-self
+
+@each $way in $flex-list {
+    .align-self-#{$way}{
+        align-self: map-get($flex-map, $way);
+    }
+};
+
+//flex-grow
+
+.flex-grow{
+    flex-grow: 1;
+}
+
+//flex-wrap
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+//flex-shi
+
