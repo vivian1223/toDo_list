@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="scss/all.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="home-bg-theme py-7">
+        <main class="col-4 mx-auto bg-info">
+            <h1 class="bg-primary font-white font-bold font-medium text-center  py-1 mb-2">
+                紀錄讓你的日常更美好
+            </h1>
+            <div class="bg-white">
+                <ul class="home-tab mb-3">
+                    <li><a href="#" class="home-tab-item">今日待辦</a></li>
+                    <li><a href="#" class="home-tab-item">已完成</a></li>
+                </ul>
+                <div class="px-8 py-3 position-relative">
+                    <ul class="position-relative">
+                        <li class="home-todo-item">
+                            <p>嘿嘿嘿</p>
+         
+                            <div class="home-todo-item-edit">
+                                <a @click.prevent="doneToDo" :data-id="todo.id" href="#" class="link-primary ms-1"><i
+                                    class="fas fa-check"></i></a>
+                            <a @click.prevent="editToDo" :data-id="todo.id" href="#" class="link-primary ms-1 fs-2"><i
+                                    class="fas fa-pen  fs-2"></i></a>
+                            <a @click.prevent="removeToDo" :data-id="todo.id" href="#"
+                                class="link-primary ms-1 fs-3 "><i class="fas fa-times"></i></a>
+                            </div>
+                            
+                        </li>
+                        <li class="home-todo-item">
+                            <p>嘿嘿嘿</p>
+         
+                            <div class="home-todo-item-edit">
+                                <a @click.prevent="doneToDo" :data-id="todo.id" href="#" class="link-primary ms-1"><i
+                                    class="fas fa-check"></i></a>
+                            <a @click.prevent="editToDo" :data-id="todo.id" href="#" class="link-primary ms-1 fs-2"><i
+                                    class="fas fa-pen  fs-2"></i></a>
+                            <a @click.prevent="removeToDo" :data-id="todo.id" href="#"
+                                class="link-primary ms-1 fs-3 "><i class="fas fa-times"></i></a>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                    <a href="#" class="home-add-todo">
+                        增加待辦  <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
