@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="scss/all.css">
-    <title>Document</title>
+    <title>紀錄你的日常待辦</title>
 </head>
 
 <body>
@@ -21,33 +21,36 @@
                 <div class="bg-white">
                     <ul class="home-tab mb-3">
                         <li><a href="#" class="home-tab-item">待辦事項</a></li>
-                        <li><a href="#" class="home-tab-item">已完成</a></li>
+                        <li><a href="#" class="home-tab-item" @click.prevent="">已完成</a></li>
                     </ul>
-                    <div class="px-8 py-3 position-relative">
+                    <div class="px-8 pb-3  position-relative">
                         <ul class="position-relative">
-                            <li class="home-todo-item" v-for="toDo in toDoList">
-                                <p>{{toDo.todo}}</p>
+                            <li class="home-todo-item" v-for="toDo in toDoFilter()">
+                                <p>{{toDo.toDo}}</p>
                                 <div class="home-todo-item-edit">
-                                    <a @click.prevent="" href="#" class="link-primary ms-1"><i
+                                    <a @click.prevent="completeToDo(toDo)" href="#" class="link-primary ms-1"><i
                                             class="fas fa-check"></i></a>
                                     <a @click.prevent="" href="#" class="link-primary ms-1 fs-2"><i
                                             class="fas fa-pen  fs-2"></i></a>
-                                    <a @click.prevent="" href="#" class="link-primary ms-1 fs-3 "><i
+                                    <a @click.prevent="deleteToDo(toDo)" href="#" class="link-primary ms-1 fs-3 "><i
                                             class="fas fa-times"></i></a>
                                 </div>
 
                             </li>
                         </ul>
-                        <a @click.prevent="addToDo" href="#" class="home-add-todo">
+                        <a @click.prevent="showModal" href="#" class="home-add-todo">
                             增加待辦 <i class="fas fa-plus"></i>
                         </a>
                     </div>
 
                 </div>
             </main>
-            <div class="homeModalBgDark" v-if="modalStatus"></div>
-        <div class="homeModal"v-if="modalStatus">
-            <input type="text">
+            <div class="home-modal-bg-dark" v-if="modalStatus"></div>
+        <div class="home-modal"v-if="modalStatus">
+            <input type="text" v-model="tempToDo">
+            <a href="#" @click.prevent="addToDo">
+                儲存
+            </a>
         </div>
         </div>
         
