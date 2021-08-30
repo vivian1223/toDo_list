@@ -20,21 +20,27 @@
                 </h1>
                 <div class="bg-white">
                     <ul class="home-tab mb-3">
-                        <li><a href="#" class="home-tab-item">待辦事項</a></li>
-                        <li><a href="#" class="home-tab-item" @click.prevent="">已完成</a></li>
+                        <li><a href="#" class="home-tab-item" @click.prevent="showToDoFilter('incomplete')">待辦事項</a></li>
+                        <li><a href="#" class="home-tab-item" @click.prevent="showToDoFilter('completed')">已完成</a></li>
                     </ul>
                     <div class="px-8 pb-3  position-relative">
                         <ul class="position-relative">
-                            <li class="home-todo-item" v-for="toDo in toDoFilter()">
-                                <p>{{toDo.toDo}}</p>
-                                <div class="home-todo-item-edit">
+                            <li class="home-todo-item" v-for="toDo in toDoFilter">
+                                <p v-if="toDo.status != 'edit'">{{toDo.toDo}}</p>
+                                <input class="border-primary" v-model="tempToDo.toDo" v-if="toDo.status == 'edit'" type="text">
+                                <div class="home-todo-item-edit" v-if="toDo.status != 'edit'">
                                     <a @click.prevent="completeToDo(toDo)" href="#" class="link-primary ms-1"><i
                                             class="fas fa-check"></i></a>
-                                    <a @click.prevent="" href="#" class="link-primary ms-1 fs-2"><i
+                                    <a @click.prevent="editToDo(toDo)" href="#" class="link-primary ms-1 fs-2"><i
                                             class="fas fa-pen  fs-2"></i></a>
                                     <a @click.prevent="deleteToDo(toDo)" href="#" class="link-primary ms-1 fs-3 "><i
                                             class="fas fa-times"></i></a>
                                 </div>
+                                <div v-if="toDo.status === 'edit'">
+                                    <a @click.prevent="doneEdit(toDo)" href="#" class="link-primary ms-1"><i
+                                        class="fas fa-check"></i></a>
+                                </div>
+                                
 
                             </li>
                         </ul>
@@ -47,7 +53,7 @@
             </main>
             <div class="home-modal-bg-dark" v-if="modalStatus"></div>
         <div class="home-modal"v-if="modalStatus">
-            <input type="text" v-model="tempToDo">
+            <input type="text" v-model="tempToDo.toDo">
             <a href="#" @click.prevent="addToDo">
                 儲存
             </a>
