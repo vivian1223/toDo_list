@@ -21,7 +21,6 @@ const app = Vue.createApp({
     //新增todo
     addToDo() {
       this.modalStatus = false;
-      console.log(this.tempToDo)
       if (this.tempToDo.toDo=="") {
         return;
       }
