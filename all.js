@@ -6,7 +6,9 @@ const app = Vue.createApp({
       modalStatus: false,
       toDoList: [],
       //到時候要拿來編輯用的值
-      tempToDo: {},
+      tempToDo: {
+        toDo:""
+      },
       //頁面狀態，用來判斷觸發渲染時，陣列filter會回傳什麼值
       status: "incomplete",
     };
@@ -19,40 +21,37 @@ const app = Vue.createApp({
     //新增todo
     addToDo() {
       this.modalStatus = false;
-      if (this.tempToDo == {}) {
+      console.log(this.tempToDo)
+      if (this.tempToDo.toDo=="") {
         return;
       }
       let obj = {};
       obj.toDo = this.tempToDo.toDo;
       obj.status = "incomplete";
+      this.toDoList.push(obj);
+      this.tempToDo={};
       axios
         .post(this.apiPath, obj)
         .then(function (res) {
-          this.toDoList = res.data;
-          obj = {};
-          window.location.reload();
         })
         .catch((err) => console.log(err));
     },
       //刪除todo
     deleteToDo(item) {
+      let id = item.id;
+      let index = this.toDoList.findIndex((item)=>item.id == id);    
+      this.toDoList.splice(index,1);
       axios
-        .delete(this.apiPath + `/${item.id}`)
-        .then((res) => {
-          console.log(res);
-          window.location.reload();
-        })
+        .delete(`${this.apiPath}/${item.id}`)
+        .then((res) => {})
         .catch((err) => console.log(err));
     },
     //完成todo
     completeToDo(item) {
       item.status = "completed";
       axios
-        .patch(this.apiPath + `/${item.id}`, item)
-        .then((res) => {
-          this.toDoList = res.data;
-          window.location.reload();
-        })
+        .patch(`${this.apiPath}/${item.id}`, item)
+        .then((res) => {})
         .catch((err) => console.log(err));
     },
     //取得資料
@@ -94,7 +93,6 @@ const app = Vue.createApp({
         .patch(`${this.apiPath}/${toDo.id}`, this.tempToDo)
         .then((res) => {
           this.toDoList = res.data;
-          window.location.reload();
           this.tempToDo = {};
         })
         .catch((err) => console.log(err));

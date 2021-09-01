@@ -25,7 +25,7 @@
                     </ul>
                     <div class="px-8 pb-3  position-relative">
                         <ul class="position-relative">
-                            <li class="home-todo-item" v-for="toDo in toDoFilter">
+                            <li class="home-todo-item" v-for="toDo in toDoFilter" :key="toDo.id">
                                 <p v-if="toDo.status != 'edit'">{{toDo.toDo}}</p>
                                 <input class="border-primary" v-model="tempToDo.toDo" v-if="toDo.status == 'edit'" type="text">
                                 <div class="home-todo-item-edit" v-if="toDo.status != 'edit'">
