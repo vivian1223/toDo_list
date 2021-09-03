@@ -19,10 +19,7 @@
                     紀錄讓你的日常更美好
                 </h1>
                 <div class="bg-white">
-                    <ul class="home-tab mb-3">
-                        <li><a href="#" class="home-tab-item" @click.prevent="showToDoFilter('incomplete')">待辦事項</a></li>
-                        <li><a href="#" class="home-tab-item" @click.prevent="showToDoFilter('completed')">已完成</a></li>
-                    </ul>
+                    <tab-component @show-to-do="(status)=> showToDoFilter(status)"></tab-component>
                     <div class="px-8 pb-3  position-relative">
                         <ul class="position-relative">
                             <li class="home-todo-item" v-for="toDo in toDoFilter" :key="toDo.id">
