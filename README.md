@@ -11,4 +11,4 @@ JavaScript
 CSS
 ---
 * SCSS used
-* design theory applied to class & uitities management
+* design theory applied to class & utiliities management
