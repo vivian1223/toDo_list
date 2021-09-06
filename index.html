@@ -21,44 +21,12 @@
                 <div class="bg-white">
                     <tab-component @show-to-do="(status)=> showToDoFilter(status)"></tab-component>
                     <div class="px-8 pb-3  position-relative">
-                        <todo-list-component :todo-fliter="toDoFilter"></todo-list-component>
-                        <!-- <ul class="position-relative">
-                            <li class="home-todo-item" v-for="toDo in toDoFilter" :key="toDo.id">
-                                <p v-if="toDo.status != 'edit'">{{toDo.toDo}}</p>
-                                <input class="border-primary" v-model="tempToDo.toDo" v-if="toDo.status == 'edit'" type="text">
-                                <div class="home-todo-item-edit" v-if="toDo.status != 'edit'">
-                                    <a @click.prevent="completeToDo(toDo)" href="#" class="link-primary ms-1"><i
-                                            class="fas fa-check"></i></a>
-                                    <a @click.prevent="editToDo(toDo)" href="#" class="link-primary ms-1 fs-2"><i
-                                            class="fas fa-pen  fs-2"></i></a>
-                                    <a @click.prevent="deleteToDo(toDo)" href="#" class="link-primary ms-1 fs-3 "><i
-                                            class="fas fa-times"></i></a>
-                                </div>
-                                <div v-if="toDo.status === 'edit'">
-                                    <a @click.prevent="doneEdit(toDo)" href="#" class="link-primary ms-1"><i
-                                        class="fas fa-check"></i></a>
-                                </div>
-                                
-
-                            </li>
-                        </ul> -->
-                        <a @click.prevent="showModal" href="#" class="home-add-todo">
-                            增加待辦 <i class="fas fa-plus"></i>
-                        </a>
+                        <todo-list-component  :todo-filter="toDoFilter" v-model:temp-to-do="tempToDo" @complete-to-do="completeToDo" @edit-to-do="editToDo" @done-edit="doneEdit" @delete-to-do="deleteToDo"></todo-list-component>
+                        <add-to-do-component @show-modal="showModal"></add-to-do-component>
                     </div>
-
                 </div>
             </main>
-            <div class="home-modal-bg-dark" v-if="modalStatus"></div>
-        <div class="home-modal"v-if="modalStatus">
-            <input type="text" v-model="tempToDo.toDo">
-            <a href="#" @click.prevent="addToDo">
-                儲存
-            </a>
-        </div>
-        </div>
-        
-        
+            <modal-component :modal-status="modalStatus" v-model:temp-to-do="tempToDo" @add-to-do="addToDo"></modal-component>        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

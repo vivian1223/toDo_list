@@ -27,6 +27,7 @@ const app = Vue.createApp({
       let obj = {};
       obj.toDo = this.tempToDo.toDo;
       obj.status = "incomplete";
+      obj.id = new Date().getTime();
       this.toDoList.push(obj);
       this.tempToDo = {};
       axios
@@ -65,7 +66,6 @@ const app = Vue.createApp({
     //由於我們有在 computed 監聽 status 了，
     //所以當 status 的值有所變動 toDoFilter() 就會回傳新的陣列內容
     showToDoFilter(status) {
-      console.log(status)
       switch (status) {
         case "completed":
           this.status = "completed";
@@ -83,17 +83,16 @@ const app = Vue.createApp({
       toDo.preStatus = toDo.status;
       toDo.status = "edit";
       this.tempToDo.toDo = toDo.toDo;
+      console.log(toDo)
     },
     //完成編輯
     doneEdit(toDo) {
-      toDo.status = toDo.preStatus;
       console.log(toDo);
+      toDo.status = toDo.preStatus;
+      this.status = "completed";
       axios
         .patch(`${this.apiPath}/${toDo.id}`, this.tempToDo)
-        .then((res) => {
-          this.toDoList = res.data;
-          this.tempToDo = {};
-        })
+        .then(res => this.tempToDo = {})
         .catch((err) => console.log(err));
     },
   },
@@ -118,7 +117,6 @@ const app = Vue.createApp({
   },
   // DOM tree ready 時完成取得資料
   created() {
-    console.log('App created');
     this.getData();
   },
 });
@@ -147,21 +145,26 @@ app.component("todoListComponent", {
       toDoList:[]
     };
   },
-  props:['todoFilter'],
+  props:['todoFilter','tempToDo'],
   methods: {
     showToDo(status){
       this.$emit('showToDo',status)
+    },
+    completeToDo(toDo){
+      this.$emit('completeToDo',toDo)
+    },
+    editToDo(toDo){
+      this.$emit('editToDo',toDo)
+    },
+    doneEdit(toDo){
+      this.$emit('doneEdit',toDo)
+    },
+    deleteToDo(toDo){
+      this.$emit('deleteToDo',toDo)
     }
   },
-  created() {
-    console.log('component created');
-  },
-  mounted() {
-    console.log('component mounted');
-  },
-
   template: `<ul class="position-relative">
-  <li class="home-todo-item" v-for="toDo in toDoFilter" :key="toDo.id">
+  <li class="home-todo-item" v-for="toDo in todoFilter" :key="toDo.id">
       <p v-if="toDo.status != 'edit'">{{toDo.toDo}}</p>
       <input class="border-primary" v-model="tempToDo.toDo" v-if="toDo.status == 'edit'" type="text">
       <div class="home-todo-item-edit" v-if="toDo.status != 'edit'">
@@ -178,6 +181,39 @@ app.component("todoListComponent", {
       </div>
   </li>
 </ul>`,
+});
+
+app.component("addToDoComponent", {
+  data() {
+    return {};
+  },
+  methods: {
+    showModal(){
+      this.$emit('showModal')
+    }
+  },
+  template: `<a @click.prevent="showModal" href="#" class="home-add-todo">
+  增加待辦 <i class="fas fa-plus"></i>
+</a>`,
+});
+
+app.component("modalComponent", {
+  data() {
+    return {};
+  },
+  props:['modalStatus','tempToDo'],
+  methods: {
+    addToDo(){
+      this.$emit('addToDo');
+    }
+  },
+  template: `<div class="home-modal-bg-dark" v-if="modalStatus"></div>
+  <div class="home-modal"v-if="modalStatus">
+      <input type="text" v-model="tempToDo.toDo">
+      <a href="#" @click.prevent="addToDo">
+          儲存
+      </a>
+  </div>`,
 });
 
 app.mount("#app");
