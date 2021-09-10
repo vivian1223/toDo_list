@@ -1,24 +1,14 @@
-# todo_list
+# toDo_list
 
-## Project setup
-```
-npm install
-```
+Check the [Demo](https://vivian1223.github.io/toDo_list/)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+JavaScript
+---
+* Vue used 
+* JSON Server API as temporary Database
+* RESTful API uesed
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+CSS
+---
+* SCSS used
+* design theory applied to class & utiliities management
