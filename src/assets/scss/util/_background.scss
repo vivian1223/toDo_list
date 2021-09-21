@@ -1,0 +1,7 @@
+//backgrounf color 
+
+@each $color in $color-list {
+    .bg-#{$color}{
+        background-color: map-get($color-map,$color);
+    }
+}

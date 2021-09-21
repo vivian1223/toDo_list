@@ -1,14 +1,24 @@
-# toDo_list
+# vue-cli-axios-test
 
-Check the [Demo](https://vivian1223.github.io/toDo_list/)
+## Project setup
+```
+npm install
+```
 
-JavaScript
----
-* Vue used 
-* JSON Server API as temporary Database
-* RESTful API uesed
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-CSS
----
-* SCSS used
-* design theory applied to class & utiliities management
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

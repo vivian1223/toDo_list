@@ -1,0 +1,62 @@
+//font-size
+@each $name in $font-name {
+    .fs-#{$name}{
+        font-size: $spacer * map-get($font-base,$name) ;
+    }
+};
+
+@include mobile{
+   @each $name in $font-name {
+    .fs-sm-#{$name}{
+        font-size: $spacer * map-get($font-base,$name) ;
+    }
+}; 
+}
+
+
+
+
+//line-height
+
+@each $name in $line-height-name{
+    .lh-#{$name}{
+        line-height: map-get($line-height-base,$name);
+    }
+};
+
+//font-weight
+@each $weight in $font-weight-list {
+    .font-#{$weight}{
+        font-weight: map-get($font-weight-map, $weight);
+    }
+}
+
+
+//font color
+
+@each $color in $color-list {
+    .font-#{$color}{
+        color: map-get($color-map, $color);
+    }
+};
+
+//text-align
+
+@each $direction in $direction-list {
+    .text-#{$direction}{
+        text-align: map-get($direciton-map, $direction);
+    }
+}
+
+//font-famlily
+
+@each $family in $font-family-list {
+    .font-#{$family}{
+        font-family: $family;
+    }
+}
+//font-style
+
+.font-italic{
+    font-style: italic;
+}

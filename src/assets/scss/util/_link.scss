@@ -1,0 +1,8 @@
+@each $color in $color-list {
+    .link-#{$color}{
+        color: map-get($color-map,$color);
+        &:hover{
+            color: darken(map-get($color-map,$color),5%);
+        }
+    }
+}
