@@ -1,6 +1,6 @@
 # toDo_list
 
-Check the [Demo](https://vivian1223.github.io/toDo_list/)
+Check the [Demo](https://vivian1223.github.io/vue-todo-list/)
 
 JavaScript
 ---
